@@ -1,0 +1,13 @@
+{
+  "goal": "Show what video-generations does in 20 seconds",
+  "audience": "developers and creators trying the repo",
+  "format": "16:9",
+  "length_s": 20,
+  "language": "en",
+  "style": "clean gradient cards, bold type",
+  "voice": "kokoro:af_heart",
+  "music": "none",
+  "sfx": false,
+  "branding": {"handle": "video-generations", "end_card": true},
+  "deliverables": ["mp4", "srt"]
+}

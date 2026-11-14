@@ -1,0 +1,13 @@
+{
+  "voice": "af_heart",
+  "lang": "en-us",
+  "speed": 1.0,
+  "pad_s": 0.6,
+  "bg": ["#0f172a", "#1e3a8a"],
+  "accent": "#38bdf8",
+  "scenes": [
+    {"title": "Hook in five words", "body": "One line that makes them stay.", "say": "Here is the hook that makes people stay.", "dur": 3},
+    {"title": "The point", "body": "Explain one idea per scene.", "say": "Explain one idea per scene, in plain words.", "dur": 4},
+    {"title": "@yourhandle", "body": "Follow for more", "say": "", "dur": 2}
+  ]
+}

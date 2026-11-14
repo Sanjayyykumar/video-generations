@@ -1,0 +1,64 @@
+{
+  "voice": "af_heart",
+  "lang": "en-us",
+  "speed": 1.0,
+  "pad_s": 0.5,
+  "bg": [
+    "#0f172a",
+    "#312e81"
+  ],
+  "accent": "#f59e0b",
+  "scenes": [
+    {
+      "title": "Write it. Run it. Ship it.",
+      "body": "A finished video from one JSON file.",
+      "say": "Write a few lines. Run one command. Get a finished video.",
+      "bg": [
+        "#0f172a",
+        "#312e81"
+      ],
+      "accent": "#f59e0b"
+    },
+    {
+      "title": "A real voice, offline",
+      "body": "Kokoro TTS. No GPU, no API key.",
+      "say": "It speaks with a natural voice that runs offline. No graphics card, and no A.P.I. key.",
+      "bg": [
+        "#022c22",
+        "#0f766e"
+      ],
+      "accent": "#5eead4"
+    },
+    {
+      "title": "Timed to the voice",
+      "body": "Every scene stretches to fit its line.",
+      "say": "Every scene is timed to its line, so nothing feels rushed.",
+      "bg": [
+        "#3b0764",
+        "#9d174d"
+      ],
+      "accent": "#f9a8d4"
+    },
+    {
+      "title": "Captions + mix",
+      "body": "Word-timed subtitles. Music ducks under speech.",
+      "say": "Captions, music ducking, and broadcast loudness, done for you.",
+      "bg": [
+        "#172554",
+        "#1d4ed8"
+      ],
+      "accent": "#93c5fd"
+    },
+    {
+      "title": "Your turn",
+      "body": "python studio/make.py examples/hello-studio",
+      "say": "Now it's your turn.",
+      "bg": [
+        "#1c1917",
+        "#b45309"
+      ],
+      "accent": "#fde68a",
+      "dur": 4
+    }
+  ]
+}

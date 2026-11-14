@@ -1,0 +1,47 @@
+# Your own videos and renders stay local
+projects/
+output/
+examples/*/audio/
+examples/*/src/
+examples/*/stills/
+examples/*/out/
+
+# Downloaded models (python studio/get_models.py)
+models/
+
+# Media and archives (docs/demo.* is the only exception)
+*.mp4
+*.mov
+*.webm
+*.wav
+*.mp3
+*.m4a
+*.flac
+*.onnx
+*.bin
+*.pt
+*.safetensors
+*.tar
+*.tgz
+*.zip
+!docs/demo.mp4
+
+# ElevenLabs cache (your paid generations)
+voice/cache/
+
+# Python / tooling
+__pycache__/
+*.pyc
+.venv/
+venv/
+node_modules/
+
+# Secrets
+.env
+.env.*
+*.pem
+
+# OS junk
+Thumbs.db
+desktop.ini
+.DS_Store
