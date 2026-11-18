@@ -34,7 +34,7 @@ git clone https://github.com/Sanjayyykumar/video-generations
 cd video-generations
 pip install -r requirements.txt          # also install FFmpeg: winget / brew / apt install ffmpeg
 python studio/get_models.py              # ~120 MB voice model, once
-python studio/doctor.py                  # checks everything, prints READY
+python studio/doctor.py                  # checks everything, prints READY  (yt-dlp optional: winget/brew install yt-dlp)
 python studio/make.py examples/hello-studio
 ```
 
@@ -72,6 +72,20 @@ A scene is just what to show and what to say:
 
 Formats: `9:16` (Reels/Shorts/TikTok), `16:9` (YouTube), `1:1` (feed).
 
+## Edit your own reels (talking head → finished reel)
+
+```bash
+python studio/reel.py raw.mp4 reel.mp4 --music bed.mp3
+```
+Silences cut out (tight jump cuts) · punch-in zoom on every 2nd cut · reframed to 9:16 · colour grade · **word-by-word captions** with the active word highlighted and key words (numbers, long words) emphasised · music ducked under your voice · −14 LUFS.
+
+## Copy the *feel* of reels you love (not the content)
+
+```bash
+python studio/reference.py projects/my-style <link1> <link2> <link3>
+```
+Downloads the references (yt-dlp) and measures them in code: cut pace, cuts in the first 3 s, silence left in, words per second, loudness, grade and palette. You get contact sheets of the hook and every shot, a `STYLE.md` brand sheet to review, and a `style.draft.json` that `reel.py --style` applies.
+
 ## How it works
 
 ```mermaid
@@ -103,6 +117,7 @@ Fix any mispronunciation once in [`voice/lexicon.py`](voice/lexicon.py).
 | A long, directed narration with breaths and pauses | [`voice/`](voice/README.md): `speak.py` → `polish_vo.py` → `mix_narration.py` |
 | Dialogue with several characters | `voice/speak_cast.py` |
 | A premium cloud voice without paying twice | `voice/el_cache.py` (ElevenLabs, cached per line) |
+| Reels in a style you defined | `studio/reference.py` → review `STYLE.md` → `studio/reel.py --style style.json` |
 | Fancier visuals (React, math, motion graphics) | Render `src/silent.mp4` with Remotion / Manim / HyperFrames, then `make.py <project> --skip-render` |
 | Narration that sounds like a presenter | [`docs/voice-house-style.md`](docs/voice-house-style.md) |
 
@@ -110,7 +125,7 @@ Fix any mispronunciation once in [`voice/lexicon.py`](voice/lexicon.py).
 
 ```
 video-generations/
-├── studio/            the pipeline: new_project · vo · cards · subs · mix · make · doctor · get_models
+├── studio/            pipeline (new_project · vo · cards · subs · mix · make) + reel · reference · captions · doctor · get_models
 ├── voice/             directed narration tools + examples/
 ├── templates/         scenes.json, STORYBOARD, LOG, SOURCES copied into every new project
 ├── examples/          hello-studio (the demo above)

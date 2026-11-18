@@ -7,6 +7,7 @@ bad = []
 print("[tools]")
 for t in ("ffmpeg", "ffprobe"):
     print(ok(shutil.which(t)), t); bad += [] if shutil.which(t) else [t]
+print(ok(shutil.which("yt-dlp")), "yt-dlp", "" if shutil.which("yt-dlp") else "(optional: download reference videos)")
 print("\n[python packages]  pip install -r requirements.txt")
 for m, need in (("numpy", 1), ("PIL", 1), ("soundfile", 1), ("kokoro_onnx", 1), ("faster_whisper", 0)):
     try: importlib.import_module(m); print("OK ", m)
