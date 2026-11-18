@@ -75,7 +75,9 @@ def main():
     f.append(f"{cat}concat=n={len(segs)}:v=1:a=1[vc][ac]"); f.append(f"[vc]{grade},format=yuv420p[vg]")
     tmp = tempfile.mkdtemp(prefix="reel_"); cut = os.path.join(tmp, "cut.mp4")
     script = os.path.join(tmp, "graph.txt"); open(script, "w").write(";\n".join(f))
-    run(["ffmpeg", "-y", "-loglevel", "error", "-i", a.src, "-filter_complex_script", script, "-map", "[vg]", "-map", "[ac]",
+    ver = re.search(r"version n?(\d+)", subprocess.run(["ffmpeg", "-version"], capture_output=True, text=True).stdout)
+    fc = ["-/filter_complex", script] if ver and int(ver.group(1)) >= 7 else ["-filter_complex_script", script]  # ffmpeg 7+ syntax
+    run(["ffmpeg", "-y", "-loglevel", "error", "-i", a.src, *fc, "-map", "[vg]", "-map", "[ac]",
          "-c:v", "libx264", "-preset", "veryfast", "-crf", "18", "-c:a", "aac", "-b:a", "192k", cut])
 
     vf = None; base = os.path.splitext(a.out)[0]
